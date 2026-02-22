@@ -1,0 +1,28 @@
+.repoCard {
+    border: 2px solid orange;
+    border-radius: 15px;
+    background-color: #302700;
+    padding: 1rem;
+    cursor: pointer;
+
+    .repoCardHeading {
+        display: flex;
+        justify-content: space-between;
+        gap: 1.5rem;
+        margin-bottom: 1.2rem;
+    }
+
+    h2 {
+        font-weight: 700;
+        font-size: 1.2rem;
+        overflow: hidden;
+    }
+
+}
+p.description {
+    font-weight: 200;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;   /* number of lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

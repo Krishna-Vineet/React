@@ -1,0 +1,26 @@
+#modalArea {
+    position: fixed;
+    height: 100vh;
+    inset: 0; /* shorthand for top/left/right/bottom 0 */
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.6);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+
+    #modalBox {
+        width: 60%;
+        max-width: 700px;
+        background-color: #003100;
+        border: 5px solid orangered;
+        border-radius: 2rem;
+        padding: 2rem;
+
+        div.content {
+            margin: 2rem auto;
+        }
+    }
+}
