@@ -1,0 +1,23 @@
+.mainFlex {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3.5rem;
+    padding: 2rem;
+    flex-wrap: wrap; /* allow items to wrap on smaller devices */
+    justify-content: space-between;
+}
+
+.mainFlex > aside {
+    flex: 0 0 22rem;
+}
+
+@media (max-width: 768px) {
+    .mainFlex {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+    .mainFlex > aside {
+        flex: 1 1 auto;
+    }
+}

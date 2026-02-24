@@ -1,0 +1,65 @@
+aside {
+    background-color: var(--sidebar-bg);
+    padding: 2rem;
+    width: 22rem;
+    max-width: 100%;
+    position: sticky;
+    top: 3.5rem; /* below navbar height */
+    color: var(--text-secondary);
+}
+
+/* inner wrapper to handle scrolling without breaking sticky */
+.aside-inner {
+    max-height: calc(100vh - 3.5rem - 4rem); /* account for padding + heading */
+    overflow-y: auto;
+    scrollbar-width: none; /* firefox */
+    -ms-overflow-style: none; /* ie 10+ */
+}
+
+/* hide webkit scrollbar */
+.aside-inner::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+@media (max-width: 768px) {
+    aside {
+        position: relative;
+        width: 100%;
+        top: 0;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    .aside-inner {
+        max-height: none;
+    }
+}
+aside h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--heading-text);
+}
+
+aside .filter {
+    margin-bottom: 1.5rem;
+}
+
+aside label {
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+aside input[type="radio"] {
+    accent-color: var(--accent-primary);
+}
+
+@media (max-width: 768px) {
+    aside {
+        position: relative;
+        width: 100%;
+        height: auto;
+        top: 0;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+}
