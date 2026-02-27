@@ -10,11 +10,11 @@ export const CartProvider = ({ children }) => {
 
   const toggleCartItem = id => {
     setCartList(prev =>
-      prev.includes(id) ? prev.filter(v => v !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter(v => v !== id) : [id, ...prev]
     );
   };
 
-  const value = { cartList, isInCart, toggleCartItem };
+  const value = { cartList, setCartList, isInCart, toggleCartItem };
 
   return (
     <cartContext.Provider value={value}>{children}</cartContext.Provider>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router'
 import Home from './pages/Home.jsx'
 import { SiteLayout } from './layout/SiteLayout.jsx'
@@ -7,15 +7,38 @@ import Food from './pages/Food.jsx'
 import Shoes from './pages/Shoes.jsx'
 import Cart from './pages/Cart.jsx'
 import Wishlist from './pages/Wishlist.jsx'
-import { CartProvider, useCart } from './context/cartContext.jsx'
-import { useWishlist, WishlistProvider } from './context/wishlistContext.jsx'
+import { useCart } from './context/cartContext.jsx'
+import { useWishlist } from './context/wishlistContext.jsx'
+
 
 export const App = () => {
 
+  const {cartList, setCartList} = useCart();
+  const {wishList, setWishList} = useWishlist();
+
+  useEffect(() => {
+    const pastCart = JSON.parse(localStorage.getItem('cart'));
+    const pastWishlist = JSON.parse(localStorage.getItem('wishlist'));
+    
+    if (pastCart && pastCart.length) {
+      setCartList(pastCart)
+    }
+    if (pastWishlist && pastWishlist.length) {
+      setWishList(pastWishlist)
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartList));
+  }, [cartList])
+
+  useEffect(() => {
+    localStorage.setItem('wishlist', JSON.stringify(wishList));
+  }, [wishList])
+
 
   return (
-    <CartProvider>
-      <WishlistProvider>
+
 
         <BrowserRouter>
           <Routes>
@@ -29,8 +52,6 @@ export const App = () => {
             </Route>
           </Routes>
         </BrowserRouter>
-        
-      </WishlistProvider>
-    </CartProvider>
+
   )
 }

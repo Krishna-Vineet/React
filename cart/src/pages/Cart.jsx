@@ -51,11 +51,11 @@ const Cart = () => {
           <div className="mt-6 space-y-4 border-b border-slate-200 pb-6 text-sm">
             <div className="flex justify-between text-slate-600">
               <span>Subtotal</span>
-              <span className="font-semibold text-slate-900">₹{subTotal}</span>
+              <span className="font-semibold text-slate-900">₹{subTotal.toFixed(2)}</span>
             </div>
             <div className="flex justify-between text-slate-600">
               <span>Tax</span>
-              <span className="font-semibold text-slate-900">₹{taxAmmount}</span>
+              <span className="font-semibold text-slate-900">₹{taxAmmount.toFixed(2)}</span>
             </div>
             <div className="flex justify-between text-slate-600">
               <span>Shipping</span>
@@ -68,7 +68,7 @@ const Cart = () => {
           </div>
           <div className="mt-6 flex justify-between text-lg font-bold text-slate-900">
             <span>Total</span>
-            <span>₹{subTotal + taxAmmount + shippingFee}</span>
+            <span>₹{(subTotal + taxAmmount + shippingFee).toFixed(2)}</span>
           </div>
           <button className="mt-8 w-full rounded-xl bg-blue-600 py-4 font-bold text-white transition-all hover:bg-blue-700 active:scale-95">
             Proceed to Checkout

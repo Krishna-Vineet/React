@@ -8,7 +8,7 @@ export const WishlistProvider = ({children}) => {
     const isWishlisted = id => wishList.includes(id);
 
     const toogleWishlistItem = id => {
-        setWishList( prev => prev.includes(id) ? prev.filter(v => v !== id) : [...prev, id]);
+        setWishList( prev => prev.includes(id) ? prev.filter(v => v !== id) : [id, ...prev]);
     }
 
     const value = {wishList, setWishList, isWishlisted, toogleWishlistItem};
